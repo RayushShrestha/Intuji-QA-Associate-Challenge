@@ -16,6 +16,14 @@ public class page10 {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.get("https://automationexercise.com/");
+		
+		Signup_page signup=new Signup_page(driver, wait);
+		
+		signup.createUser();
+		
+		
+		driver.quit();
+		
     	
     }
 }
