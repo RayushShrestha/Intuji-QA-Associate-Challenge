@@ -19,9 +19,12 @@ public class page10 {
 		
 		Signup_page signup=new Signup_page(driver, wait);
 		LoginPage log= new LoginPage(driver);
+		Product_page products=new Product_page(driver, wait);
+		
 		
 		signup.createUser();
 		log.signin();
+		products.filter();
 		
 		
 		driver.quit();
