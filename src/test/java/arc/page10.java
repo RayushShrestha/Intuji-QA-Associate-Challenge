@@ -18,8 +18,10 @@ public class page10 {
 		driver.get("https://automationexercise.com/");
 		
 		Signup_page signup=new Signup_page(driver, wait);
+		LoginPage log= new LoginPage(driver);
 		
 		signup.createUser();
+		log.signin();
 		
 		
 		driver.quit();
