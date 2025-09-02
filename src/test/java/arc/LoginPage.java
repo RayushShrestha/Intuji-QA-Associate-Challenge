@@ -10,18 +10,18 @@ public class LoginPage {
 		
 	}
 	public void signin() {
-		String URL =driver.getCurrentUrl();
+
 		
 		driver.findElement(By.xpath("//input[@data-qa='login-email']")).sendKeys("abc1756786299170@gmail.com");
 		driver.findElement(By.name("password")).sendKeys("Password@12");
 		driver.findElement(By.xpath("//button[.='Login']")).click();
-		
-		
-		
-		if (URL.equals("https://automationexercise.com/login")) {
-		    System.out.println("LOGGED IN");
-		} else {
-		    System.out.println("Invalid credentials" );
+		 
+		String loginText= driver.findElement(By.xpath("(//a)[contains(.,'Logged in as Hello Intuji')]")).getText().trim();
+		if(loginText.equals("Logged in as Hello Intuji")) {
+			System.out.println(" logged in");
 		}
+		else
+			System.out.println("invalid cred");
+		
 	}
 }

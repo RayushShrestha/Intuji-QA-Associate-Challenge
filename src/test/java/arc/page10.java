@@ -15,14 +15,15 @@ public class page10 {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		driver.get("https://automationexercise.com/");
-		
+		//String url= "https://automationexercise.com/";
+		String url= "https://automationexercise.com/login";
+		driver.get(url);
 		Signup_page signup=new Signup_page(driver, wait);
 		LoginPage log= new LoginPage(driver);
 		Product_page products=new Product_page(driver, wait);
 		
 		
-		signup.createUser();
+//		signup.createUser();
 		log.signin();
 		products.filter();
 		

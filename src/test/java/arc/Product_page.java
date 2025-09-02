@@ -23,16 +23,14 @@ public class Product_page {
 
 		List<WebElement> navBar=driver.findElements(By.xpath("//ul//li"));
 		navBar.stream().filter(s->s.getText().contains(" Products")).findFirst().ifPresent(WebElement::click);
-		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(.,'Women')]"))).click();
-		List<WebElement> genderDress=driver.findElements(By.xpath("(//div[@class='panel-body'])[1]//ul//li"));
-		genderDress.stream().filter(s->s.getText().contains("Dress ")).findFirst().ifPresent(WebElement::click);
-		
+		driver.findElement(By.xpath("//a[contains(@href,'/category_products/1')]")).click();
+		Thread.sleep(2000);
 		if (driver.findElement(By.xpath("(//h2)[3]")).getText()=="Women - Dress Products") {
 			System.out.println("Filtered successfully");
 		}
 		
-		Thread.sleep(4000);
+
 		
 	}
 }
