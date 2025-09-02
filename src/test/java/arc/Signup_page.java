@@ -72,7 +72,8 @@ public class Signup_page {
 		driver.findElement(By.name("mobile_number")).sendKeys("1234567890");
 		driver.findElement(By.xpath("//button[.='Create Account']")).click();
 		driver.findElement(By.xpath("//a[.='Continue']")).click();
-		Thread.sleep(4000);
+		driver.findElement(By.xpath("//a[.=' Logout']")).click();
+		Thread.sleep(2000);
 	}
 
 }

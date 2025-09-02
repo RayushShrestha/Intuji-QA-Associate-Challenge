@@ -1,4 +1,5 @@
 package arc;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class LoginPage {
 	private WebDriver driver;
@@ -10,7 +11,14 @@ public class LoginPage {
 	}
 	public void signin() {
 		String URL =driver.getCurrentUrl();
-		if (URL.equals("https://automationexercise.com/")) {
+		
+		driver.findElement(By.xpath("//input[@data-qa='login-email']")).sendKeys("abc1756786299170@gmail.com");
+		driver.findElement(By.name("password")).sendKeys("Password@12");
+		driver.findElement(By.xpath("//button[.='Login']")).click();
+		
+		
+		
+		if (URL.equals("https://automationexercise.com/login")) {
 		    System.out.println("LOGGED IN");
 		} else {
 		    System.out.println("Invalid credentials" );
