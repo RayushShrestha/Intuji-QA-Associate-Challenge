@@ -22,14 +22,21 @@ public class AddCart {
 		List<WebElement> firstFourProducts = driver
 				.findElements(By.xpath("(//div[@class='productinfo text-center'])[position() <= 4]"));
 
-		for (WebElement product : firstFourProducts) {
-			Thread.sleep(4000);
+		for (int i = 0; i < firstFourProducts.size(); i++) {
+			WebElement product = firstFourProducts.get(i);
 			System.out.println(product.getText());
-			product.findElement(By.xpath("//a[@class='btn btn-default add-to-cart']")).click();
+
+			product.findElement(By.xpath(".//a[contains(@class,'add-to-cart')]")).click();
+			// Example: only click <u> after last product
+			if (i == firstFourProducts.size() - 1) {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//u"))).click();
+
+			}
+			
+
 		}
 
-		driver.findElement(By.xpath("//u")).click();
-//		driver.navigate().back();
+		driver.navigate().back();
 		driver.findElement(By.xpath("//button[.='Continue Shopping']")).click();
 		firstFourProducts.stream().findAny().ifPresent(product -> {
 
